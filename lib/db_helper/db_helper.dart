@@ -9,7 +9,7 @@ class DBHelper {
 
   static DBHelper? _dbHelper;
   Database? _database;
-
+//factory yöntemi, sınıfın kendi nesnesini döndüren ve bu nesnenin oluşturulmasını kontrol eder
   factory DBHelper() {
     return _dbHelper ??= DBHelper._init();
   }

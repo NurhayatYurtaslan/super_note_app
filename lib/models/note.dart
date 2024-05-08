@@ -57,9 +57,11 @@ class Note {
         other.description == description &&
         other.time == time;
   }
+  //covariant kıyaslama yapmak için var 
 
   @override
   int get hashCode {
     return id.hashCode ^ title.hashCode ^ description.hashCode ^ time.hashCode;
   }
+  //hashCode metodunun kullanım amacı, bir nesnenin koleksiyonlarda (örneğin, Set veya Map) veya == operatörü ile eşitlik kontrolünde kullanılmasını sağlamaktır. Eşit nesneler aynı hashCode değerine sahip olmalıdır. Bu, koleksiyonlarda nesneleri hızlıca bulmak ve eşitlik durumunu doğru bir şekilde kontrol etmek için kullanılır.
 }
