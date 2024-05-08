@@ -1,7 +1,7 @@
 
 import 'package:super_note_app/db_helper/db_helper.dart';
 
-import '../app/models/note.dart';
+import '../models/note.dart';
 
 class NoteRepository {
   final DBHelper _dbHelper = DBHelper();

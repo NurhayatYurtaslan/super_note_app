@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_note_app/app/models/note.dart';
-import 'package:super_note_app/repository/repository.dart';
+import 'package:super_note_app/app/repository/repository.dart';
 
 part 'notes_event.dart';
 part 'notes_state.dart';
