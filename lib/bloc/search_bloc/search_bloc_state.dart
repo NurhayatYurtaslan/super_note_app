@@ -1,6 +1,25 @@
 part of 'search_bloc_bloc.dart';
 
-@immutable
-sealed class SearchBlocState {}
+abstract class SearchState {}
 
-final class SearchBlocInitial extends SearchBlocState {}
+class SearchInitialState extends SearchState {}
+
+class SearchLoadingListState extends SearchState {}
+
+class SearchLoadedListState extends SearchState {
+  SearchLoadedListState(this.notes);
+
+  List<Note> notes;
+}
+
+class SearchGetNotesWithTextState extends SearchState {
+  SearchGetNotesWithTextState(this.filteredNotes);
+
+  List<Note> filteredNotes;
+}
+
+class SearchErrorState extends SearchState {
+  SearchErrorState(this.message);
+
+  String message;
+}
