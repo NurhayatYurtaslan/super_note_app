@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:path/path.dart' as path;
 import 'package:sqflite/sqflite.dart';
 import 'package:super_note_app/core/constants/db_constants.dart';
-import '../app/models/note.dart';
+import '../../app/models/note.dart';
 
 class DBHelper {
   DBHelper._init();

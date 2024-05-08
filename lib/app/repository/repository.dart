@@ -1,5 +1,5 @@
 
-import 'package:super_note_app/db_helper/db_helper.dart';
+import 'package:super_note_app/core/db_helper/db_helper.dart';
 
 import '../models/note.dart';
 
