@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Notes Keeper',
+      title: 'Super Note App',
       theme: notesTheme,
       debugShowCheckedModeBanner: false,
       home: const HomeScreen(),
