@@ -20,7 +20,7 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
 
     on<DeleteAllNoteEvent>((event, emit) {
       _noteRepository.deleteAllNotes();
-      emit.call(AllNoteState());
+      emit.call(AllNotesDeletedState());
     });
 
     on<ShowNoteInGridEvent>((event, emit) {

@@ -17,6 +17,8 @@ class DeleteNoteState extends NoteState {
   DeleteNoteState(this.notes);
   List<Note> notes;
 }
+
+class AllNotesDeletedState extends NoteState {}
 class CreateNoteState extends NoteState {
   CreateNoteState(this.notes);
 
