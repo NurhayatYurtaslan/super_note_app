@@ -46,7 +46,7 @@ class HomeScreenState extends State<HomeScreen> {
       title: const Text('Super Notes App'),
       actions: [
         buildActionIcon(
-          iconPath: AssetsConsts.icDustbin,
+          iconPath: AssetsConsts.isDustbin,
           onTap: () async {
             if (_noteList.isNotEmpty) {
               bool agree = await showDeleteAllNotesDialog(context);
@@ -59,7 +59,7 @@ class HomeScreenState extends State<HomeScreen> {
           rightMargin: 8.0,
         ),
         buildActionIcon(
-          iconPath: AssetsConsts.icSearch,
+          iconPath: AssetsConsts.isSearch,
           onTap: () {
             if (_noteList.isNotEmpty) {
               Navigator.push(
@@ -120,7 +120,7 @@ class HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 buildListingIcon(
-                  AssetsConsts.icGrid,
+                  AssetsConsts.isGrid,
                   () {
                     if (_showGrid) {
                       return;
@@ -130,7 +130,7 @@ class HomeScreenState extends State<HomeScreen> {
                   },
                 ),
                 buildListingIcon(
-                  AssetsConsts.icList,
+                  AssetsConsts.isList,
                   () {
                     if (!_showGrid) {
                       return;
@@ -316,6 +316,7 @@ class HomeScreenState extends State<HomeScreen> {
       bool wannaDeleteGridItem = await showDeleteNoteDialog(context);
 
       if (wannaDeleteGridItem) {
+        // ignore: use_build_context_synchronously
         context.read<NoteBloc>().add(DeleteNoteEvent(_noteList[index].id!));
         wannaDeleteGridItem = false;
       }
@@ -327,6 +328,7 @@ class HomeScreenState extends State<HomeScreen> {
       _wannaDeleteListItem = await showDeleteNoteDialog(context);
 
       if (_wannaDeleteListItem) {
+        // ignore: use_build_context_synchronously
         context.read<NoteBloc>().add(DeleteNoteEvent(_noteList[index].id!));
         _wannaDeleteListItem = false;
 

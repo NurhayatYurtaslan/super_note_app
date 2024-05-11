@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:super_note_app/app/view/view_home/view_homeView.dart';
+import 'package:super_note_app/app/view/view_home/view_home.dart';
 import 'package:super_note_app/bloc/notes_bloc/notes_bloc.dart';
 import 'package:super_note_app/bloc/search_bloc/search_bloc_bloc.dart';
 import 'package:super_note_app/core/constants/theme_constants.dart';

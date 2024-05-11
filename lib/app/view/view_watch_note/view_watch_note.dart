@@ -61,12 +61,14 @@ class _WatchNoteScreenState extends State<WatchNoteScreen> {
           onTap: () async {
             bool agree = await showDeleteNoteDialog(context);
             if (agree) {
+              // ignore: use_build_context_synchronously
               context.read<NoteBloc>().add(DeleteNoteEvent(_note.id!));
+              // ignore: use_build_context_synchronously
               Navigator.pop(context);
             }
           },
           rightMargin: 15.0,
-          iconPath: AssetsConsts.icDustbin,
+          iconPath: AssetsConsts.isDustbin,
         ),
         buildActionIcon(
           onTap: () async {
