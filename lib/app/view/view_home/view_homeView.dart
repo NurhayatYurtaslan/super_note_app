@@ -150,7 +150,7 @@ class HomeScreenState extends State<HomeScreen> {
                 } else if (state is NoteLoadedState) {
                   _noteList = state.notes;
                   return _buildListOrEmpty();
-                } else if (state is DeleteNoteState) {
+                } else if (state is AllNotesDeletedState) {
                   _noteList = [];
                   return _buildListOrEmpty();
                 } else if (state is ShowNoteInViewState) {
