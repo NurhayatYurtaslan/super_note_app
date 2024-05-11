@@ -43,7 +43,7 @@ class HomeScreenState extends State<HomeScreen> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      title: const Text('Notes Keeper'),
+      title: const Text('Super Notes App'),
       actions: [
         buildActionIcon(
           iconPath: AssetsConsts.icDustbin,
