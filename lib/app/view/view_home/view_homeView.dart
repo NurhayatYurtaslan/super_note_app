@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:super_note_app/app/models/note.dart';
+import 'package:super_note_app/app/view/view_add_update/view_add_update.dart';
+import 'package:super_note_app/app/view/view_search_note/view_search_note.dart';
+import 'package:super_note_app/app/view/view_watch_note/view_watch_note.dart';
 import 'package:super_note_app/bloc/notes_bloc/notes_bloc.dart';
+import 'package:super_note_app/core/constants/assets_const.dart';
 import 'package:super_note_app/core/constants/color_constants.dart';
 import 'package:super_note_app/core/widgets/action_icon_widget.dart';
+import 'package:super_note_app/core/widgets/delete_alert_widget.dart';
 import 'package:super_note_app/core/widgets/delete_all_alert_widget.dart';
 import 'package:super_note_app/core/widgets/dismissible_alert_widget.dart';
 import 'package:super_note_app/core/widgets/empty_notes_background_widget.dart';
@@ -46,6 +51,7 @@ class HomeScreenState extends State<HomeScreen> {
             if (_noteList.isNotEmpty) {
               bool agree = await showDeleteAllNotesDialog(context);
               if (agree) {
+                // ignore: use_build_context_synchronously
                 context.read<NoteBloc>().add(DeleteAllNoteEvent());
               }
             }
@@ -137,17 +143,17 @@ class HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Expanded(
-            child: BlocBuilder<NoteBloc, NotesState>(
+            child: BlocBuilder<NoteBloc, NoteState>(
               builder: (context, state) {
                 if (state is NoteLoadingState || state is NoteInitialState) {
                   return _buildLoading();
                 } else if (state is NoteLoadedState) {
                   _noteList = state.notes;
                   return _buildListOrEmpty();
-                } else if (state is AllNotesDeletedState) {
+                } else if (state is DeleteNoteState) {
                   _noteList = [];
                   return _buildListOrEmpty();
-                } else if (state is ShowNotesInViewState) {
+                } else if (state is ShowNoteInViewState) {
                   _showGrid = state.inGrid;
                   return _buildListOrEmpty();
                 } else if (state is DeleteNoteState) {
@@ -194,9 +200,7 @@ class HomeScreenState extends State<HomeScreen> {
         onPressed: () async {
           await Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (_) => const AddUpdateNoteScreen(),
-            ),
+            MaterialPageRoute(builder: (_) => const AddUpdateNoteScreen()),
           );
         },
         backgroundColor: AppColors.white,
